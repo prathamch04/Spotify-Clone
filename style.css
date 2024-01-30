@@ -22,6 +22,8 @@ body {
     width: 75vw;
     /* border: 2px solid red; */
     margin: 16px 0;
+    max-height: 100vh;
+    /* overflow: scroll; */
 }
 
 .header {
@@ -30,11 +32,38 @@ body {
     background-color: #121212;
     border-radius: 8px;
     margin-top: 5px;
+    height: 11vh;
 }
 
 
 .header>* {
     padding: 20px;
+}
+
+.signUp {
+    margin: 15px; 
+    background-color: transparent; 
+    border: 0; 
+    color: rgb(156, 148, 148);
+    cursor: pointer;
+
+}
+
+.signUp:hover{
+    font-size: 15px;
+    color: white;
+}
+
+.logIn{
+    border-radius: 30px; 
+    padding: 15px; 
+    width: 90px;
+    cursor: pointer;
+}
+
+.logIn:hover{
+    font-weight: bold;
+    font-size: 15px;
 }
 
 
@@ -146,3 +175,5 @@ body {
     .footer a {
         color: grey;
     }
+
+  
