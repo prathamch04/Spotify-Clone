@@ -22,10 +22,13 @@ async function getSongs() {
 
 }
 
-playMusic = (track) => {
+const playMusic = (track) => {
     // var audio = new Audio("/songs/" + track);
     currentSong.src = "/songs/" + track
     currentSong.play();
+    play.src = "pause.svg"
+    document.querySelector(".songinfo").innerHTML = track
+    document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 
     // audio.addEventListener("loadeddata", () => {
     //     let duration = audio.duration;
@@ -33,6 +36,19 @@ playMusic = (track) => {
     // });
 }
 
+function secondsToMinutesAndSeconds(seconds) {
+    if (typeof seconds !== 'number' || isNaN(seconds)) {
+      return "Invalid input";
+    }
+  
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+  
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+  
+    return `${formattedMinutes}:${formattedSeconds}`;
+  }
 
 async function main() {
 
@@ -61,11 +77,39 @@ async function main() {
 
     //attach an event listener to each song
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
-        let play = e.getElementsByTagName('img')[1];
-        play.addEventListener("click", element => {
+        let playNow = e.getElementsByTagName('img')[1];
+        playNow.addEventListener("click", element => {
             console.log(e.querySelector(".info").firstElementChild.innerHTML);
             playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
         })
+    })
+
+    // Attach an event listener to play next and previous
+    play.addEventListener("click", () => {
+        if (currentSong.paused) {
+            currentSong.play()
+            play.src = "pause.svg"
+        }
+        else {
+            currentSong.pause()
+            play.src = "play.svg"
+        }
+    })
+
+
+    //listen for time Update event
+    currentSong.addEventListener("timeupdate", () => {
+        console.log(currentSong.currentTime, currentSong.duration);
+        document.querySelector(".songtime").innerHTML = `${secondsToMinutesAndSeconds(currentSong.currentTime)}/${secondsToMinutesAndSeconds(currentSong.duration)}`
+        document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration)*100 + "%"
+
+
+    })
+
+
+    //Add an event listener to seekbar
+    document.querySelector(".seekbar").addEventListener("click", (e)=>{
+        console.log(e.offsetX);
     })
 }
 
