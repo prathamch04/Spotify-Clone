@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
+:root{
+    --a: 0;
+}
 
 * {
     margin: 0;
@@ -88,10 +91,18 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     margin: 10px;
+    overflow-y: auto;
 }
 
 .card>* {
     padding-top: 10px;
+}
+
+.card:hover{
+    background-color: rgb(65, 61, 61);
+    cursor: pointer;
+    --a: 1;
+
 }
 
 .card img {
@@ -103,7 +114,7 @@ body {
     position: absolute;
     top: 100px;
     left: 93px;
-    opacity: 1;
+    opacity: var(--a);
     transition: all 1s ease-out;
 }
 
@@ -113,10 +124,17 @@ body {
     background-color: rgb(72, 151, 72);
     width: 69%;
     padding: 20px;
-    height: 3vh;
+    min-height: 3vh;
     border-radius: 19px;
     display: flex;
     justify-content: space-between;
+}
+
+.abovebar {
+    display: flex;
+    justify-content: space-between;
+    /* margin: 1px 0; */
+    width: 100%;
 }
 
 .songButton {
@@ -124,7 +142,7 @@ body {
     justify-content: center;
     gap: 16px;
     cursor: pointer;
-    padding-right: 170px;
+    padding-right: 258px;
 }
 .songinfo{
     color: black;
@@ -282,3 +300,88 @@ body {
 .library .footer a {
     color: grey;
 }
+
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.hamburger{
+    display: none;
+    height: 30px;
+    width: 30px;
+}
+
+.close{
+    display: none;
+    position: absolute;
+    right: 25px;
+    padding-top: 10px;
+}
+
+
+@media (max-width: 1400px) {
+    .left{
+        position: absolute;
+        left: -120%;
+        transition: all .3s;
+        z-index: 1;
+        width: 380px;
+        background-color: black;
+    }
+
+    .right{
+        width: 100vw;
+    }
+
+    .playbar{
+        width: 88vw;
+    }
+
+    .abovebar{
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .seekbar{
+        width: 87vw;
+    }
+
+    .songButton{
+        padding-left: 250px;
+    }
+
+    .songtime{
+        /* position: absolute; */
+        /* right: 0; */
+        font-size: 14px;
+        width: auto;
+    }
+
+    .songinfo{
+        width: auto;
+
+    }
+
+    .hamburger{
+       display: block; 
+    }
+
+    .close{
+        display: block;
+    }
+
+    .cardContainer{
+        justify-content: center;
+    }
+
+    .card{
+        width: 70vw;
+    }
+
+  
+  }

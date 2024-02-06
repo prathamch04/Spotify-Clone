@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responisve.css">
     <title>Spotify</title>
 </head>
 
 <body>
     <div class="container">
         <div class="left">
+            <div class="close">
+                <img class="invert" src="close.svg" alt="">
+            </div>
             <div class="home">
                 <div class="logo"><img class="invert" src="logo.svg" alt=""></div>
                 <ul>
@@ -26,7 +28,7 @@
                 </div>
                 <div class="songList">
                     <ul>
-                      
+
                     </ul>
 
                 </div>
@@ -53,6 +55,7 @@
         <div class="right">
             <div class="header">
                 <div class="nav">
+                    <img class="invert hamburger" src="hamburger.svg" alt="">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M15 6L9 12L15 18" stroke="#ffffff" stroke-width="1.5" stroke-miterlimit="16" />
                     </svg>
@@ -71,7 +74,7 @@
             <div class="spotifyPlaylist">
                 <h2>Spotify playlist</h2>
                 <div class="cardContainer">
-                    <div class="card">
+                    <div data-folder="ncs" class="card">
                         <div class="play">
                             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="25" fill="#1fdf64" />
@@ -86,7 +89,7 @@
                         <h2>Happy Hits!</h2>
                         <p style="color: #a7a7a7;">Hits to boost your mood and fill you with happiness!</p>
                     </div>
-                    <div class="card">
+                    <div data-folder="JAAT" class="card">
                         <div class="play">
                             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
                                 <circle cx="50" cy="50" r="25" fill="#1fdf64" />
@@ -149,23 +152,24 @@
             <div class="playbar">
                 <div class="seekbar">
                     <div class="circle">
-                        
+
                     </div>
                 </div>
-                <div class="songinfo">
-                    
+                <div class="abovebar">
+                    <div class="songinfo">
+
+                    </div>
+
+                    <div class="songButton">
+                        <img id="previous" src="previous.svg" alt="">
+                        <img id="play" src="play.svg" alt="">
+                        <img id="next" src="next.svg" alt="">
+                    </div>
+
+                    <div class="songtime">
+
+                    </div>
                 </div>
-
-                <div class="songButton">
-                    <img id="previous" src="previous.svg" alt="">
-                    <img id="play" src="play.svg" alt="">
-                    <img id="next" src="next.svg" alt="">
-                </div>
-
-                <div class="songtime">
-
-                </div>
-
             </div>
 
         </div>
