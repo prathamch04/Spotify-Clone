@@ -91,7 +91,7 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     margin: 10px;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 .card>* {
